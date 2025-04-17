@@ -131,12 +131,29 @@ async function runIntro() {
   await typeLine("line3", lines[2], 50);
   await typeLine("line4", lines[3], 50);
 
-  await new Promise(resolve => setTimeout(resolve, 5000)); // Changed from 6000 to 5000
+  await new Promise(resolve => setTimeout(resolve, 4000)); // Changed from 5000 to 4000
 
+  // Sanftes Ausblenden von Katze und Intro-Text mit Glitch-Effekt
   const catImg = document.getElementById("webcat");
-  if (catImg) catImg.remove();
+  const introContainer = document.getElementById("intro-container");
 
+  if (catImg) {
+    catImg.style.transition = "opacity 1s ease, filter 0.3s ease-in-out";
+    catImg.style.opacity = "0";
+    catImg.style.filter = "contrast(200%) saturate(300%) hue-rotate(30deg)";
+  }
+
+  if (introContainer) {
+    introContainer.style.transition = "opacity 1s ease, filter 0.3s ease-in-out";
+    introContainer.style.opacity = "0";
+    introContainer.style.filter = "blur(1px) contrast(150%)";
+  }
+
+  await new Promise(resolve => setTimeout(resolve, 1000)); // Zeit für Fade-Out
+
+  if (catImg) catImg.remove();
   document.getElementById("intro-container").remove();
+  
   canvas.style.display = "block";
   setInterval(drawCrossAnimated, 50);
 
