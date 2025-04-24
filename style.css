@@ -1,0 +1,50 @@
+/* Body & Hintergrund */
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+  font-family: monospace;
+  color: #00ff00;
+}
+
+/* Matrix-Canvas */
+#matrix {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Text-Box links */
+.intro-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  white-space: pre;
+  text-align: left;
+  z-index: 10;
+}
+
+/* Webcat rechts */
+.intro-cat {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  max-height: 80vh;
+  width: auto;
+  z-index: 10;
+}
+
+/* Blinkender Cursor */
+#cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
